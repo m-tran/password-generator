@@ -26,9 +26,6 @@ function generatePassword() {
 
   while (true) {
     var charType = prompt("Enter at least one of the following character types: lowercase, uppercase, numeric, special.");
-    console.log(charType);
-    console.log(typeof charType);
-    console.log(charType.includes("special"));
 
     if (charType === "") {
       prompt("Looks empty! Enter at least one of the following character types: lowercase, uppercase, numeric, special.");
