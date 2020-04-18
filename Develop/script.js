@@ -13,11 +13,11 @@ function writePassword() {
 function generatePassword() {
 
   //prompts
-  var passwordLength = prompt("How many characters will you password be? Enter a number between 8 and 128.");
-  if (passwordLength < 8 || passwordLength > 128) {
+  var pwLength = prompt("How many characters will you password be? Enter a number between 8 and 128.");
+  if (pwLength < 8 || pwLength > 128) {
     prompt("We don't see that number here. Please enter a number between 8 and 128.");
   } else {
-    alert("We got it! Your password will be " + passwordLength + " characters.");
+    alert("We got it! Your password will be " + pwLength + " characters.");
   }
   var charType = prompt("Enter at least one of the following character types: lowercase, uppercase, numeric, special.");
   if (charType === "") {
@@ -39,11 +39,11 @@ function generatePassword() {
   var arrType = charType.split(",");
   
   for (let i=0; i < arrType.length; i++) {
-    if (arrType[i] === "lowercase") {
+    if (arrType[i].includes("lowercase")) {
       charSet.push(lowerCase);
-    } else if (arrType[i] === "uppercase") {
+    } else if (arrType[i].includes("uppercase")) {
       charSet.push(upperCase);
-    } else if (arrType[i] === "numeric") {
+    } else if (arrType[i].includes("numeric")) {
       charSet.push(numbers);
     } else {
       charSet.push(charCase);
@@ -64,6 +64,7 @@ function generatePassword() {
       if (possibilityIndex === arr.length) {
         possibilityIndex = 0;
       }
+
     }
 
     var passwordArray = password.split("");
@@ -72,7 +73,7 @@ function generatePassword() {
     var rand = 0;
 
     for (let i=0; i<arrayLength; i++) {
-      rand = Math.floor(Math.random() * arrayLength);
+      rand = Math.floor(Math.random() * passwordArray.length);
       scrambledPassword += passwordArray.splice(rand, 1);
     }
 
@@ -80,7 +81,7 @@ function generatePassword() {
 
   }
 
-  password = passwordMix(passwordLength, charSet);
+  password = passwordMix(pwLength, charSet);
 
   return password;
 
