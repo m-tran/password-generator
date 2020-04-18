@@ -12,16 +12,17 @@ function writePassword() {
 
 function generatePassword() {
   var passwordLength = prompt("How many characters will you password be? Enter a number between 8 and 128.");
-  if (passwordLength < 8 || passwordLength > 128){
+  if (passwordLength < 8 || passwordLength > 128) {
     prompt("The number you entered is incorrect. Please enter a number between 8 and 128.");
   } else {
     alert("Your password will be " + passwordLength + " characters.");
   }
   var characterTypes = prompt("Enter at least one character type: lowercase, uppercase, numeric, and/or special characters. If selecting more than one character type, please separate each type with a comma.");
-} if (characterTypes == null) {
+  if (characterTypes === "") {
   prompt("Enter at least one character type: lowercase, uppercase, numeric, and/or special characters. If selecting more than one character type, please separate each type with a comma.");
-} else {
+  } else {
   alert("Your password will include the following character types: " + characterTypes);
+  }
 }
 
 // Add event listener to generate button
