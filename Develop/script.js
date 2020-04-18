@@ -13,17 +13,29 @@ function writePassword() {
 function generatePassword() {
 
   //prompts
-  var pwLength = prompt("How many characters will you password be? Enter a number between 8 and 128.");
-  if (pwLength < 8 || pwLength > 128) {
-    prompt("We don't see that number here. Please enter a number between 8 and 128.");
-  } else {
-    alert("We got it! Your password will be " + pwLength + " characters.");
+  while (true) {
+    var pwLength = prompt("How many characters will you password be? Enter a number between 8 and 128.");
+
+    if ((pwLength < 8) || (pwLength > 128) || (pwLength === "")) {
+      prompt("We don't see that number here. Please enter a number between 8 and 128.");
+    } else {
+      alert("We got it! Your password will be " + pwLength + " characters.");
+      break;
+    }
   }
-  var charType = prompt("Enter at least one of the following character types: lowercase, uppercase, numeric, special.");
-  if (charType === "") {
-  prompt("Looks empty! Enter at least one of the following character types: lowercase, uppercase, numeric, special.");
-  } else {
-  alert("Gotcha. Your password will include the following character types: " + charType + ".");
+
+  while (true) {
+    var charType = prompt("Enter at least one of the following character types: lowercase, uppercase, numeric, special.");
+    console.log(charType);
+    console.log(typeof charType);
+    console.log(charType.includes("special"));
+
+    if (charType === "") {
+      prompt("Looks empty! Enter at least one of the following character types: lowercase, uppercase, numeric, special.");
+    } else if ((charType.includes("lowercase")) || (charType.includes("uppercase")) || (charType.includes("numeric")) || (charType.includes("special"))) { 
+      alert("Gotcha. Your password will include the following character types: " + charType + ".");
+      break;
+    } 
   }
 
   // character types
