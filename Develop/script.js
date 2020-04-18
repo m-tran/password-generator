@@ -61,19 +61,17 @@ function generatePassword() {
 
   function passwordMix(num, arr) {
     var possibilityIndex = 0;
+    var randPick = 0;
     password = "";
-    var targetArray = [];
 
-    for (let i=0; i < num; i++) {
-      targetArray = arr[possibilityIndex];
-      possibilityIndex++; 
-
-      password += targetArray[Math.floor(Math.random() * targetArray.length)];
+    for (let i=0; i<num; i++) {
+      randPick = Math.floor(Math.random() * arr[possibilityIndex].length);
+      password += arr[possibilityIndex][randPick];
+      possibilityIndex++;
 
       if (possibilityIndex === arr.length) {
-        possibilityIndex = 0;
-      }
-
+          possibilityIndex = 0;
+        }
     }
 
     var passwordArray = password.split("");
