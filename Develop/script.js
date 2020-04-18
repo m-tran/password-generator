@@ -41,7 +41,7 @@ function generatePassword() {
   var upper = "ABCDEFGHIJKLMNOPQRSTUVWXY";
   var upperCase = upper.split("");
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  var charCase = " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+  var charCase = " !#$%&'()\"\\*+,-./:;<=>?@[\]^_`{|}~";
 
   var charSet = [];
   
